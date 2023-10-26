@@ -12,3 +12,12 @@ def categories(request):
 
 def profile(request):
     return render(request, "main/profile.html")
+
+def cart(request):
+    return render(request, "main/cart.html")
+
+def orders(request):
+    return render(request, "main/orders.html")
+
+def settings(request):
+    return render(request, "main/settings.html")

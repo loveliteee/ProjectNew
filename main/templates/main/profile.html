@@ -3,80 +3,72 @@
 {% block content %}
     {% include 'main/test.html' %}
         <section class="container d-flex mt-5">
-            <aside class="aside col-2 container">
-                <div class="d-flex flex-column mb-5">
-                    <h5>Личный кабинет</h5>
-                    <a href="#" class="td-0 button__profile">profile=name</a>
-                    <a href="#" class="td-0 button__profile">Доставка</a>
-                    <a href="#" class="td-0 button__profile">Мои достижения</a>
-                    <a href="#" class="td-0 button__profile">Избранное</a>
-                    <a href="#" class="td-0 button__profile">Мои покупки</a>
-                </div>
-
-                <div class="d-flex flex-column mb-5">
-                    <h5>Бонусный клуб</h5>
-                    <a href="#" class="td-0 button__profile">Бонусы</a>
-                    <a href="#" class="td-0 button__profile">Карта бонусного клуба</a>
-                    <a href="#" class="td-0 button__profile">Купоны</a>
-                </div>
-
-                <div class="d-flex flex-column">
-                    <h5>Сервисы</h5>
-                    <a href="#" class="td-0 button__profile">Мои отзывы о товарах</a>
-                    <a href="#" class="td-0 button__profile">Подарочные сертификаты</a>
-                    <a href="#" class="td-0 button__profile">Вопросы и ответы</a>
-                    <a href="#" class="td-0 button__profile">Пункты самовывоза</a>
-                    <a href="#" class="td-0 button__profile" class="td-0">Выйти</a>
-                </div>
-            </aside>
-            <section class="container">
-                <h4 class="mb-3">Профиль</h4>
-                <div class="nav">
-                    <div class="profile__bio col-5">
-                        <h5 class="profile__bio__name">Ваша личная информация</h5>
-                        <form name="search" action="#" method="get" claa="row ml-3">
-                          <input type="text" name="search" placeholder="Имя" class="form-control mb-2">
-                        </form>
-                        <form name="search" action="#" method="get" claa="row ml-3">
-                            <input type="text" name="search" placeholder="Фамилия" class="form-control  mb-2">
-                        </form>
-                        <form name="search" action="#" method="get" claa="row ml-3">
-                            <input type="text" name="search" placeholder="Отчество" class="form-control  mb-2">
-                        </form>
-                        <form name="search" action="#" method="get" claa="row ml-3">
-                            <input type="text" name="search" placeholder="Email" class="form-control  mb-2">
-                        </form>
-                        <form name="search" action="#" method="get" claa="row ml-3">
-                            <input type="text" name="search" placeholder="Мобильный телефон" class="form-control mb-2">
-                        </form>
-                        <form name="search" action="#" method="get" claa="row ml-3">
-                            <input type="text" name="search" placeholder="Дата рождения" class="form-control  mb-2">
-                        </form>
+            <div class="sidebar col-md-3 ">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                    Персональный раздел
+                    </a>
+                    <a href="/orders" class="list-group-item list-group-item-action">Заказы</a>
+                    <a href="/cart" class="list-group-item list-group-item-action">Корзина</a>
+                    <a href="#" class="list-group-item list-group-item-action">Избранное</a>
+                    <a href="#" class="list-group-item list-group-item-action">Мои заказы</a>
+                    <a href="#" class="list-group-item list-group-item-action">Мои отзывы</a>
+                    <a href="/settings" class="list-group-item list-group-item-action">Личные данные</a>
+                  </div>
+            </div>
+           <div class="col-md-9 container">
+                <div class="row justify-content-center" >
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card w">
+                            <div class="card-body text-center">
+                              <a href="/orders" class="td-0">Заказы</a>
+                            </div>
+                          </div>
                     </div>
-    
-                    <div class="profile__bio__second col-5">
-                        <div class="profile__bio mb-3">
-                            <h5 class="profile__bio__name">Безопасность</h5>
-                             <form name="search" action="#" method="get" claa="row ml-3">
-                                <input type="text" name="search" placeholder="Изменить пароль" class="form-control mb-2">
-                            </form>
-                        </div>
-        
-                        <div class="profile__bio mb-3">
-                            <h5 class="profile__bio__name">Мобильный номер</h5>
-                            <form name="search" action="#" method="get" claa="row ml-3">
-                                <input type="text" name="search" placeholder="Изменить номер телефона" class="form-control mb-2">
-                            </form>
-                        </div>
-                        
-                        <div class="profile__bio mb-3">
-                            <h5 class="profile__bio__name">Электронная почта</h5>
-                            <form name="search" action="#" method="get" claa="row ml-3">
-                                <input type="text" name="search" placeholder="Изменить Email" class="form-control mb-2">
-                            </form>
-                        </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                              <a href="/cart" class="td-0">Корзина</a>
+                            </div>
+                          </div>
+                    </div> 
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                              <a href="#" class="td-0">Избранное</a>
+                            </div>
+                          </div>
                     </div>
                 </div>
-            </section>
+               
+                <div class="row  justify-content-center">
+                    
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                              <a href="#" class="td-0">Мои заказы</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                              <a href="#" class="td-0">Мои отзывы</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                              <a href="#" class="td-0">Личные данные</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
+                
+
+                </div>
+            </div> 
         </section>
     {% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+
+<section class="container">
+    <h4 class="mb-3">Профиль</h4>
+    <div class="nav">
+        <div class="profile__bio col-5">
+            <h5 class="profile__bio__name">Ваша личная информация</h5>
+            <form name="search" action="#" method="get" claa="row ml-3">
+              <input type="text" name="search" placeholder="Имя" class="form-control mb-2">
+            </form>
+            <form name="search" action="#" method="get" claa="row ml-3">
+                <input type="text" name="search" placeholder="Фамилия" class="form-control  mb-2">
+            </form>
+            <form name="search" action="#" method="get" claa="row ml-3">
+                <input type="text" name="search" placeholder="Отчество" class="form-control  mb-2">
+            </form>
+            <form name="search" action="#" method="get" claa="row ml-3">
+                <input type="text" name="search" placeholder="Email" class="form-control  mb-2">
+            </form>
+            <form name="search" action="#" method="get" claa="row ml-3">
+                <input type="text" name="search" placeholder="Мобильный телефон" class="form-control mb-2">
+            </form>
+            <form name="search" action="#" method="get" claa="row ml-3">
+                <input type="text" name="search" placeholder="Дата рождения" class="form-control  mb-2">
+            </form>
+        </div>
+
+        <div class="profile__bio__second col-5">
+            <div class="profile__bio mb-3">
+                <h5 class="profile__bio__name">Безопасность</h5>
+                 <form name="search" action="#" method="get" claa="row ml-3">
+                    <input type="text" name="search" placeholder="Изменить пароль" class="form-control mb-2">
+                </form>
+            </div>
+
+            <div class="profile__bio mb-3">
+                <h5 class="profile__bio__name">Мобильный номер</h5>
+                <form name="search" action="#" method="get" claa="row ml-3">
+                    <input type="text" name="search" placeholder="Изменить номер телефона" class="form-control mb-2">
+                </form>
+            </div>
+            
+            <div class="profile__bio mb-3">
+                <h5 class="profile__bio__name">Электронная почта</h5>
+                <form name="search" action="#" method="get" claa="row ml-3">
+                    <input type="text" name="search" placeholder="Изменить Email" class="form-control mb-2">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

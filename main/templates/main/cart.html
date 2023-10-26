@@ -1,0 +1,106 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+
+<section class="container mt-5">
+
+    <div class="container px-3 my-5 clearfix">
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Корзина</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered m-0">
+                    <thead>
+                      <tr>
+                        <th class="text-center py-3 px-4" style="min-width: 400px;">Товар</th>
+                        <th class="text-right py-3 px-4" style="width: 100px;">Цена</th>
+                        <th class="text-center py-3 px-4" style="width: 120px;">Количество</th>
+                        <th class="text-right py-3 px-4" style="width: 100px;">Итого</th>
+                        <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+            
+                      <tr>
+                        <td class="p-4">
+                          <div class="media align-items-center">
+                            <img src="" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                            <div class="media-body">
+                              <a href="#" class="d-block text-dark">Товар 1</a>
+                              <small>Описание</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
+                        <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
+                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
+                        <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                      </tr>
+            
+                      <tr>
+                        <td class="p-4">
+                          <div class="media align-items-center">
+                            <img src="" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                            <div class="media-body">
+                              <a href="#" class="d-block text-dark">Товар 2</a>
+                              <small>Описание</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
+                        <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
+                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
+                        <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                      </tr>
+
+                      <tr>
+                        <td class="p-4">
+                          <div class="media align-items-center">
+                            <img src="" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                            <div class="media-body">
+                              <a href="#" class="d-block text-dark">Товар 3</a>
+                              <small>Описание</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
+                        <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
+                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
+                        <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                      </tr>
+            
+                    </tbody>
+                  </table>
+                </div>
+                
+            
+                <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
+                  <div class="mt-4">
+                    <label class="text-muted font-weight-normal">Промокод</label>
+                    <input type="text" placeholder="Введите промокод" class="form-control">
+                  </div>
+                  <div class="d-flex">
+                    <div class="text-right mt-4 me-4">
+                      <label class="text-muted font-weight-normal">Скидка</label>
+                      <div class="text-large"><strong>0 тг.</strong></div>
+                    </div>
+                    <div class="text-right mt-4">
+                      <label class="text-muted font-weight-normal">Итого к оплате</label>
+                      <div class="text-large"><strong>300 тг.</strong></div>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="float-right">
+                  <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Вернуться к покупкам</button>
+                  <button type="button" class="btn btn-lg btn-primary mt-2">Оплатить</button>
+                </div>
+            </div>
+          </div>
+      </div>
+    
+</section>
+
+{% endblock %}

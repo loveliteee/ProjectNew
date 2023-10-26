@@ -12,63 +12,97 @@
 </head>
 <body>
     
-    <header> 
-        <div class="head-top container-fluid pt-5"> 
-            <div class="container col-12"> 
-                <div class="row d-flex justify-content-between"> 
-                    <nav class="nav col-3 col-sm-7 col-md-8 col-lg-4 col-xl-4 justify-content-between" > 
-                       <a href="#" class="td-0">Компания</a> 
-                       <a href="#"class="td-0">Новости</a> 
-                       <a href="#"class="td-0">Статьи</a> 
-                       <a href="#"class="td-0">Контакты</a> 
-                    </nav> 
-                 
-                    <div class="nav col-8 col-sm-5 col-md-4 col-lg-7 col-xl-8 d-flex justify-content-end"> 
-                        <a href="#" class="d-flex justify-content-between mr-5 td-0"><h6><i class="fa-solid fa-phone"></i> +7 (800) 555-3535</h6></a> 
-                        <a href="#" class="link__header d-flex justify-content-between td-0" style="margin-left: 50px;"> <h6><i class="fa-solid fa-phone"></i> +7 (800) 555-3535</h6></a> 
-                    </div>    
-                </div> 
-
-
-                <div class="row d-flex justify-content-between align-items-center mt-2">
-                    <a href="/index" class="logo col-4 col-sm-12 col-md-12 col-lg-1 col-xl-1">
-                        <img src="static\main\img\Cwerk.png" alt="dog" height="70px" width="70px">
-                    </a>
+    <div class="superNav border-bottom py-2 ">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <span class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block d-xs-none me-3"><strong>komuononado@inbox.com</strong></span>
+                <span class="me-2"><i class="fa-solid fa-phone me-3 text-primary"></i> <strong>+7 444 444 44 44 </strong></span>
                 
-                    <a href="/categories" class="btn btn-primary col-4 col-sm-2 col-md-2 col-lg-1 col-xl-1 mt-2 mt-sm-0">Каталог</a>
-                
-                    <form name="search" action="#" method="get" class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-5 mt-2 mt-sm-0 mx-auto">
-                        <div class="input-group">
-                            <input type="text" name="search" placeholder="Поиск по каталогу" class="form-control" style="border-radius: 5px 0 0 5px;">
-                            <div class="input-group-append" style="margin-left: -1px;">
-                                <button class="btn btn-outline-secondary" type="button" style="border-radius: 0 5px 5px 0;"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                
-                    <nav class="nav__header__icons nav justify-content-between pt-3 col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 mt-2 mt-sm-0">
-                        <a href="#" class="d-flex flex-column td-0">
-                            <i class="fa-solid fa-cart-shopping align-self-center"></i>
-                            <p>Корзина</p>
-                        </a>
-                        <a href="#" class="d-flex flex-column td-0">
-                            <i class="fa-regular fa-heart align-self-center"></i>
-                            <p>Избранное</p>
-                        </a>
-                        <a href="/profile" class="d-flex flex-column td-0">
-                            <i class="fa-regular fa-user align-self-center"></i>
-                            <p>Профиль</p>
-                        </a>
-                    </nav>
-                </div>
-            </div> 
-        </div> 
-    </header> 
+            </div>
+               
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
+        <div class="container">
+          <a class="navbar-brand" href="/index"><i class="fa-solid fa-snowflake me-2"></i> <strong>АТЛАНТ</strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
+            <div class="input-group">
+              <span class="border-primary input-group-text bg-primary text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
+              <input type="text" class="form-control border-primary" style="color:#000000">
+              <button class="btn btn-primary text-white">Поиск</button>
+            </div>
+          </div>
+          <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="ms-auto d-none d-lg-block">
+              <div class="input-group">
+                <span class="input-group-text bg-primary text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" class="form-control " style="color:#000000">
+                <button class="btn btn-primary text-white">Поиск</button>
+              </div>
+            </div>
+            <ul class="navbar-nav ms-auto ">
+              <li class="nav-item">
+                <a class="nav-link mx-2 text-uppercase active" aria-current="page" href="/orders">Заказы</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2 text-uppercase" href="/categories">Каталог</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2 text-uppercase" href="#">Избранное</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto ">
+              <li class="nav-item">
+                <a class="nav-link mx-2 text-uppercase" href="/cart"><i class="fa-solid fa-cart-shopping me-1"></i> Корзина</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2 text-uppercase" href="/profile"><i class="fa-solid fa-circle-user me-1"></i> Аккаунт</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     
     <main>
         {% block content %}
         {% endblock %}
     </main>
+    <footer class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-3 mb-3">
+                <img src="static\main\img\Cwerk.png" alt="dog" height="75px" width="75px">
+            </div>
     
+            <div class="col-12 col-md-3 mb-3">
+                <h5>О компании</h5>
+                <ul>
+                    <li><a href="#"class="td-0">Новости</a></li>
+                    <li><a href="#"class="td-0">Контакты</a></li>
+                    <li><a href="#"class="td-0">Статьи</a></li>
+                </ul>
+            </div>
+    
+            <div class="col-12 col-md-3 mb-3">
+                <h5>Популярные категории</h5>
+                <ul>
+                    <li><a href="#" class="td-0">Фантастика</a></li>
+                    <li><a href="#" class="td-0">Хорор</a></li>
+                    <li><a href="#" class="td-0">Биография</a></li>
+                </ul>
+            </div>
+    
+            <div class="col-12 col-md-3 mb-3">
+                <h5>Контакты</h5>
+                <p>Телефон: +7 (800) 555-3535</p>
+                <p>Email: notworkingpost@gmail.com</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
