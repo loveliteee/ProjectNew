@@ -1,21 +1,6 @@
-{% extends 'main/layout.html' %}
-
-{% block content %}
-    {% include 'main/test.html' %}
+{% extends 'main/sidebar.html' %}
+{% block profile %}
         <section class="container d-flex mt-5">
-            <div class="sidebar col-md-3 ">
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active">
-                    Персональный раздел
-                    </a>
-                    <a href="/orders" class="list-group-item list-group-item-action">Заказы</a>
-                    <a href="/cart" class="list-group-item list-group-item-action">Корзина</a>
-                    <a href="#" class="list-group-item list-group-item-action">Избранное</a>
-                    <a href="#" class="list-group-item list-group-item-action">Мои заказы</a>
-                    <a href="#" class="list-group-item list-group-item-action">Мои отзывы</a>
-                    <a href="/settings" class="list-group-item list-group-item-action">Личные данные</a>
-                  </div>
-            </div>
            <div class="col-md-9 container">
                 <div class="row justify-content-center" >
                     <div class="col-12 col-md-4 mb-3">
@@ -71,4 +56,4 @@
                 </div>
             </div> 
         </section>
-    {% endblock %}
+{% endblock %}
