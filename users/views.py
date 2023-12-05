@@ -4,10 +4,27 @@ from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
-
+from django.contrib import auth
+from django.shortcuts import render
 # from common.views import TitleMixin
 from users.forms import UserLoginForm, UserProfileForm, UserRegistrationForm
 from users.models import User
+
+def login(request):
+    if request.method == 'POST':
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            username = request.POST['username']
+            password = request.POST['password']
+            user = auth.authenticate(username=username, password=password)
+            if user:
+                auth.login(request, user)
+                return HttpResponseRedirect('/')
+    else:
+        form = UserLoginForm()
+    context = {'form': form}
+    context = {'form': UserLoginForm()}
+    return render(request, 'users/login.html', context)
 
 
 class UserLoginView( LoginView):
