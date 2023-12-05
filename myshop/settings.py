@@ -32,7 +32,6 @@ APPEND_SLASH = False
 # Application definition
 
 INSTALLED_APPS = [
-    'main',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myshop',
+    'users',
+    'main',
+    
 ]
 
 MIDDLEWARE = [
@@ -109,8 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#ADMIN_PASSWORD
-# ADMIN_PASSWORD = admin
+
 
 
 # Internationalization
@@ -141,3 +142,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Users
+
+AUTH_USER_MODEL = 'users.User'

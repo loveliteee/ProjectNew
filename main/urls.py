@@ -1,13 +1,12 @@
-from django.urls import  path
-from . import views
-from django.urls import path
-
-
+from django.urls import  path, include
 from django.contrib import admin
+from . import views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-  
+    path('users/', include('users.urls')),
     path('', views.index, name='home'),
     path('products/<int:id>', views.product_index, name='product_index'),
     path('products/new', views.add_product, name='add_product'),
@@ -18,7 +17,5 @@ urlpatterns = [
     path('cart', views.cart, name='cart'),
     path('orders', views.orders, name='orders'),
     path('settings', views.settings, name='settings'),
-    path('login', views.login, name='login'),
-    path('register', views.register, name='register'),
-    
+  
 ]

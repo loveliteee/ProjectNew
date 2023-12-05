@@ -1,0 +1,106 @@
+.btn_animation:hover{
+    background-color: rgb(212, 0, 255);
+}
+
+.head-top{
+    padding-top: 20px;
+}
+
+.custom-bg{
+    background-color: green !important;
+}
+
+.td-0{
+    text-decoration: none !important;    
+}
+
+.profile__bio{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0px 50px 50px 25px;
+    border-radius: 5px;
+}
+
+.profile__bio__name{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.profile__bio__second{
+    margin-left: 50px;
+}
+
+.button__profile{
+    color: black;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button__profile:hover{
+    color: blue;
+    background-color: rgba(80, 72, 72, 0.137);
+}
+
+.link__header{
+    margin-left: 50px;
+}
+
+a {
+    font-size:14px;
+    font-weight:700
+}
+
+.superNav {
+    font-size:13px;
+}
+  
+.form-control {
+    outline:none !important;
+    box-shadow: none !important;
+}
+
+@media screen and (max-width:540px){
+    .centerOnMobile {
+      text-align:center
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 100%;
+    max-height: 100%;
+    height: 350px;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .tabs {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+  }
+
+  .tab-content {
+    display: none;
+  }
+
+  .active-tab {
+    background-color: #ddd !important; /* добавляем !important, чтобы переопределить стили Bootstrap */
+  }
+
+  .tab-content.active {
+    display: block;
+  }
