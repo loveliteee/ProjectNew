@@ -1,12 +1,8 @@
-from django import forms
-from main import models
-from main.models import Product
-from django.db import models
-from django.contrib.postgres.fields import ArrayField
+from django.contrib.auth.forms import AuthenticationForm
 
+from users.models import User
 
-class ProductForm(forms.ModelForm):
+class UserLoginForm(AuthenticationForm):
     class Meta:
-        model = Product
-        fields = "__all__"
-
+        model = User
+        fields = ('username', 'password')
