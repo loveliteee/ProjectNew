@@ -1,9 +1,7 @@
-{% extends 'products/base.html' %}
+{% extends 'main/layout.html' %}
 {% load static %}
 
-{% block css %}
-    <link href="{% static 'vendor/css/profile.css' %}" rel="stylesheet">
-{% endblock %}
+
 
 {% block content %}
     <div class="container">
@@ -15,7 +13,7 @@
                          src="{% if user.image %} {{ user.image.url }} {% else %} {% static 'vendor/img/users/default_avatar.jpg' %} {% endif %}"
                          class="img-thumbnail">
                 </div>
-                <form action="{% url 'users:profile' user.id %}" method="post" enctype="multipart/form-data">
+                 <form action="{% url 'users:profile' user.id %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-row">
                         <div class="col-lg-6">
@@ -58,10 +56,10 @@
                             <input class="btn btn-info btn-block" type="submit" value="Сохранить">
                         </div>
                     </div>
-                </form>
+                </form>  
             </div>
             <div class="col-lg-5">
-                {% include 'products/baskets.html' %}
+                {% comment %} {% include 'products/baskets.html' %} {% endcomment %}
             </div>
         </div>
     </div>
