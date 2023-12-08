@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from main import models
 from main import forms
+from django.db.models import Q
 
 def index(request):
     popular_products = models.Product.objects.all()
@@ -12,11 +13,12 @@ def index(request):
     return render(request, 'main/index.html', context)
 
 
+
+
 def about(request):
     return render(request, "main/about.html")
 
-def categories(request):
-    return render(request, "main/categories.html")
+
 
 def profile(request):
     return render(request, "main/profile.html")
@@ -70,3 +72,24 @@ def add_product(request):
         'form': form
     })
 
+def categories_search(request):
+    search_query = request.GET.get('search', '')
+    
+    # Используйте Q-объект для выполнения поиска по нескольким полям
+    products = models.Product.objects.filter(
+        Q(name__icontains=search_query) | Q(description__icontains=search_query)
+    )
+    
+    return render(request, 'main/categories.html', {'products': products, 'search_query': search_query})
+
+
+
+def categories(request):
+    products = models.Product.objects.all()
+    categories = models.ProductCategory.objects.all()
+    
+    context={
+            'products': products,
+            'categories': categories,
+        }
+    return render(request, 'main/categories.html', context)

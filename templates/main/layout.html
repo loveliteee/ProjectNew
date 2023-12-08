@@ -18,10 +18,9 @@
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <span class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block d-xs-none me-3"><strong>komuononado@inbox.com</strong></span>
-                <span class="me-2"><i class="fa-solid fa-phone me-3 text-primary"></i> <strong>+7 444 444 44 44 </strong></span>
+                <span class="me-2"><i class="fa-solid fa-phone me-3 text-primary"></i> <strong>+7 800 555 3535 </strong></span>
                 
-            </div>
-               
+            </div>   
           </div>
         </div>
       </div>
@@ -32,21 +31,19 @@
             <span class="navbar-toggler-icon"></span>
           </button>
       
-          <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
-            <div class="input-group">
-              <span class="border-primary input-group-text bg-primary text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
-              <input type="text" class="form-control border-primary" style="color:#000000">
-              <button class="btn btn-primary text-white">Поиск</button>
-            </div>
-          </div>
           <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-            <div class="ms-auto d-none d-lg-block">
-              <div class="input-group">
-                <span class="input-group-text bg-primary text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
-                <input type="text" class="form-control " style="color:#000000">
-                <button class="btn btn-primary text-white">Поиск</button>
-              </div>
-            </div>
+
+
+
+            <form method="get" action="{% url 'categories_search' %}">
+              <input type="text" name="search" value="{{ search_query }}" placeholder="Поиск...">
+              <button type="submit">Искать</button>
+            </form>
+          
+          
+          
+
+
             <ul class="navbar-nav ms-auto ">
               <li class="nav-item">
                 <a class="nav-link mx-2 text-uppercase active" aria-current="page" href="/orders">Заказы</a>
