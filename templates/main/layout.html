@@ -35,9 +35,9 @@
 
 
 
-            <form method="get" action="{% url 'categories_search' %}">
-              <input type="text" name="search" value="{{ search_query }}" placeholder="Поиск...">
-              <button type="submit">Искать</button>
+            <form method="get" action="{% url 'search_products' %}" class="d-flex">
+              <input type="text" class="form-control me-2" name="q" placeholder="Поиск" required>
+              <button type="submit" class="btn btn-primary">Искать</button>
             </form>
           
           

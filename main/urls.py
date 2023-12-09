@@ -1,6 +1,7 @@
 from django.urls import  path, include
 from django.contrib import admin
 from . import views
+from .views import search_products
 
 
 
@@ -17,6 +18,6 @@ urlpatterns = [
     path('cart', views.cart, name='cart'),
     path('orders', views.orders, name='orders'),
     path('settings', views.settings, name='settings'),
-    path('categories', views.categories_search, name='categories_search'),
+    path('search/', search_products, name='search_products'),
 
 ]
