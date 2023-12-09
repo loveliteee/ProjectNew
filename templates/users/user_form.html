@@ -21,10 +21,14 @@
                 {% csrf_token %}
                 <div class="mb-2">
                     <label class="form-label">Изображение пользователя</label>
+                    
                     <div class="input-group">
                         <input type="file" class="form-control" name="image" value="{{ request.user.image }}">
+                        
                     </div>
-                    <img src="{{ user.image.url }}" alt="{{ user.image }}" class="img-thumbnail mt-2">
+                    <img width="150" height="150"
+                         src="{% if user.image %} {{ user.image.url }} {% else %} {% static 'vendor/img/users/default_avatar.jpg' %} {% endif %}"
+                         class="img-thumbnail">
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
