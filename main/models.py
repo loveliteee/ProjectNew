@@ -36,6 +36,10 @@ class Product(models.Model):
 
    features = models.ManyToManyField(Feature, blank=True, related_name='products', verbose_name='Характеристики')
 
+   popular = models.BooleanField(default=False)
+
+   new = models.BooleanField(default=False)
+
    def __str__(self):
        return f'Продукт: {self.name} | Категория: {self.category.name}'
 

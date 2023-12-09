@@ -8,10 +8,12 @@ from .models import Product
 def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('users:login'))
-    popular_products = models.Product.objects.all()
+    popular_products = Product.objects.filter(popular=True)
+    new_products = Product.objects.filter(new=True)
     categories = models.ProductCategory.objects.all()
     context={
         'popular_products': popular_products,
+        'new_products': new_products,
         'categories': categories,
     }
     return render(request, 'main/index.html', context)
@@ -71,15 +73,6 @@ def add_product(request):
         'form': form
     })
 
-# def categories_search(request):
-#     search_query = request.GET.get('search', '')
-    
-#     # Используйте Q-объект для выполнения поиска по нескольким полям
-#     products = models.Product.objects.filter(
-#         Q(name__icontains=search_query) | Q(description__icontains=search_query)
-#     )
-    
-#     return render(request, 'main/categories.html', {'products': products, 'search_query': search_query})
 
 def search_products(request):
     query = request.GET.get('q')
