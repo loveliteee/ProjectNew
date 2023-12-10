@@ -1,7 +1,7 @@
 from typing import Any
 from django.contrib.auth.views import LoginView
 from django.contrib.messages.views import SuccessMessageMixin
-
+from django.contrib import messages
 from django.shortcuts import HttpResponseRedirect
 from django.urls import  reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
@@ -67,6 +67,7 @@ class UserProfileUpdateView(UpdateView):
     queryset = User.objects.all()
 
     def get_success_url(self):
+        messages.success(self.request, 'Данные профиля успешно обновлены.')
         return "/users/profile/%s"%self.get_object().pk
 
 

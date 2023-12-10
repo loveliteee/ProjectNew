@@ -21,57 +21,11 @@
                         <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
                       </tr>
                     </thead>
-                    <tbody>
-            
-                      <tr>
-                        <td class="p-4">
-                          <div class="media align-items-center">
-                            <img src="" class="d-block ui-w-40 ui-bordered mr-4" alt="">
-                            <div class="media-body">
-                              <a href="#" class="d-block text-dark">Товар 1</a>
-                              <small>Описание</small>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
-                        <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
-                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
-                        <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                      </tr>
-            
-                      <tr>
-                        <td class="p-4">
-                          <div class="media align-items-center">
-                            <img src="" class="d-block ui-w-40 ui-bordered mr-4" alt="">
-                            <div class="media-body">
-                              <a href="#" class="d-block text-dark">Товар 2</a>
-                              <small>Описание</small>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
-                        <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
-                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
-                        <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                      </tr>
-
-                      <tr>
-                        <td class="p-4">
-                          <div class="media align-items-center">
-                            <img src="" class="d-block ui-w-40 ui-bordered mr-4" alt="">
-                            <div class="media-body">
-                              <a href="#" class="d-block text-dark">Товар 3</a>
-                              <small>Описание</small>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
-                        <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
-                        <td class="text-right font-weight-semibold align-middle p-4">100 тг.</td>
-                        <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                      </tr>
-            
-                    </tbody>
+                    
+                    <tbody id="cartItems">
+                      <!-- Здесь будут отображаться товары из localStorage -->
+                    </tbody>         
+                    
                   </table>
                 </div>
                 
@@ -88,7 +42,7 @@
                     </div>
                     <div class="text-right mt-4">
                       <label class="text-muted font-weight-normal">Итого к оплате</label>
-                      <div class="text-large"><strong>300 тг.</strong></div>
+                      <div class="text-large" id="overallTotal"><strong>тг</strong></div>
                     </div>
                   </div>
                 </div>
@@ -102,5 +56,120 @@
       </div>
     
 </section>
+
+<script>
+  // JavaScript code for localStorage
+  function loadCartItems() {
+      var cartItems = document.getElementById('cartItems');
+      cartItems.innerHTML = ''; // Очищаем содержимое
+
+      var totalAmount = 0;
+
+      // Перебираем товары из localStorage
+      for (var i = 0; i < localStorage.length; i++) {
+          var key = localStorage.key(i);
+
+          // Игнорируем служебные ключи (addedToCart)
+          if (key !== 'addedToCart') {
+              var product = JSON.parse(localStorage.getItem(key));
+
+              // Создаем строку для товара
+              var row = document.createElement('tr');
+
+              // Создаем ячейки для товара
+              var productNameCell = document.createElement('td');
+              productNameCell.innerHTML = '<div class="media align-items-center"><img src="" class="d-block ui-w-40 ui-bordered mr-4" alt=""><div class="media-body"><a href="#" class="d-block text-dark">' + product.productName + '</a><small>' + product.productDescription + '</small></div></div>';
+              row.appendChild(productNameCell);
+
+              var priceCell = document.createElement('td');
+              priceCell.className = 'text-right font-weight-semibold align-middle p-4';
+              priceCell.innerText = product.productPrice + ' тг.';
+              row.appendChild(priceCell);
+            
+
+              var quantityCell = document.createElement('td');
+              quantityCell.className = 'align-middle p-4';
+
+              var quantityInput = document.createElement('input');
+              quantityInput.type = 'text';
+              quantityInput.className = 'form-control text-center';
+              quantityInput.value = product.quantity;
+
+              // Добавляем слушатель события input
+              quantityInput.addEventListener('input', function() {
+                  // Обновляем значение product.quantity на основе введенного значения
+                  product.quantity = parseInt(quantityInput.value) || 0; // Преобразуем в число, если это строка, или устанавливаем 0, если не удалось преобразовать
+                  updateTotal(); // Обновляем итоговую стоимость при изменении количества
+              });
+
+              quantityCell.appendChild(quantityInput);
+              row.appendChild(quantityCell);
+
+              var totalCell = document.createElement('td');
+              totalCell.className = 'text-right font-weight-semibold align-middle p-4';
+              var totalAmount = product.quantity * product.productPrice;
+              totalCell.innerText = totalAmount + ' тг.';
+              row.appendChild(totalCell);
+
+              // Функция для обновления итоговой стоимости
+              function updateOverallTotal() {
+                var overallTotal = 0;
+                var totalElements = document.querySelectorAll('.total-amount');
+                totalElements.forEach(function(element) {
+                  overallTotal += parseFloat(element.innerText.replace(' тг.', ''));
+                });
+                document.getElementById('overallTotal').innerText = overallTotal + ' тг.';
+              }
+              
+              // Внесем изменения в функцию updateTotal
+              function updateTotal() {
+                totalAmount = product.quantity * product.productPrice;
+                totalCell.innerText = totalAmount + ' тг.';
+                updateOverallTotal(); // Обновляем общую сумму
+              }
+
+              var removeCell = document.createElement('td');
+              removeCell.className = 'text-center align-middle px-0';
+              var removeLink = document.createElement('a');
+              removeLink.href = '#';
+              removeLink.className = 'shop-tooltip close float-none text-danger';
+              removeLink.title = 'Remove';
+              removeLink.innerText = '×';
+              removeLink.addEventListener('click', function(event) {
+                  // Удаляем товар из localStorage и обновляем отображение
+                  var rowToRemove = event.target.closest('tr');
+                  var productNameToRemove = rowToRemove.querySelector('td:first-child a').innerText;
+                  localStorage.removeItem(productNameToRemove);
+                  loadCartItems();
+              });
+              removeCell.appendChild(removeLink);
+              row.appendChild(removeCell);
+
+              // Добавляем строку в таблицу
+              cartItems.appendChild(row);
+          }
+      }
+
+      // Обновляем итоговую сумму
+      document.getElementById('totalAmount').innerText = totalAmount + ' тг.';
+  }
+
+  
+
+  // Загружаем товары при загрузке страницы
+  window.onload = function() {
+      loadCartItems();
+      updateOverallTotal(); // Загружаем общую сумму в начале
+  };
+
+  // Функция для оформления заказа
+  function checkout() {
+      alert('Заказ оформлен! Спасибо за покупку.');
+      // Дополнительные действия при оформлении заказа (например, отправка на сервер)
+  }
+
+ 
+</script>
+
 
 {% endblock %}
