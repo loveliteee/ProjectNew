@@ -1,19 +1,15 @@
 from typing import Any
 from django.contrib.auth.views import LoginView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.db import models
+
 from django.shortcuts import HttpResponseRedirect
-from django.urls import reverse, reverse_lazy
-from django.views.generic.base import TemplateView
+from django.urls import  reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib import auth
 from django.shortcuts import render
-# from common.views import TitleMixin
 from users.forms import UserLoginForm, UserProfileForm, UserRegistrationForm
 from users.models import User
-from django.views.generic import DetailView
-# from django.contrib.auth.models import User
-from django.http import Http404
+
 
 def login(request):
     if request.method == 'POST':

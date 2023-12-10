@@ -63,44 +63,13 @@ a {
     }
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    max-width: 100%;
-    max-height: 100%;
-    height: 350px;
-    overflow-y: auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
+ul {
+    list-style-type: none;
+}
 
-  .tabs {
-    display: flex;
-    cursor: pointer;
-  }
+/* Возвращаем маркеры (точки) для ссылок внутри списка при необходимости */
+ul li {
+    list-style-type: none; /* Можно также использовать "none" для обоих свойств */
+}
 
-  .tab {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-  }
-
-  .tab-content {
-    display: none;
-  }
-
-  .active-tab {
-    background-color: #ddd !important; /* добавляем !important, чтобы переопределить стили Bootstrap */
-  }
-
-  .tab-content.active {
-    display: block;
-  }
+/* Добавляем стили для ссылок внутри списка, если нужно сохранить стили ссылок */

@@ -40,17 +40,14 @@ class Product(models.Model):
 
    new = models.BooleanField(default=False)
 
+   popular = models.BooleanField(default=False)
+
+   new = models.BooleanField(default=False)
+
    def __str__(self):
        return f'Продукт: {self.name} | Категория: {self.category.name}'
 
 
-class Cart(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    products = models.ManyToManyField(Product, through='CartItem')
 
-class CartItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
 
 
